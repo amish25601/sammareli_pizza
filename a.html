@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Order System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+        .category {
+            margin-top: 20px;
+        }
+        .category h3 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .item-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .item label {
+            font-size: 1rem;
+            color: #555;
+        }
+        .item input {
+            width: 60px;
+            padding: 5px;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            .button, input { display: none; }
+            .container {
+                border: none;
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Restaurant Inventory Order List</h2>
+
+    <div class="category">
+        <h3>ALL NU FOOD</h3>
+        <ul class="item-list">
+            <li class="item"><label>Prosciutto</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Semolina</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Pizza Flour</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Pineapple</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Tomato Paste</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Tomato Pulpa</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Jalapenos</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Beetroot</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Fire Roasted Capsicum</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Egg Plant</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chicken Salt</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Dry Basil</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Dry Parsley</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Oregano</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chilli Flakes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Bread Crumb</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Improver</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Salt</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Sugar</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Vegeta</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Taco Seasoning</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>BBQ Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Tomato Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Anchovies</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Smoked Mussels</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Black Pepper</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>White Pepper</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Corn Flour</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Olive Oil</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Artichoke</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Penne Pasta</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Spaghetti</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Fettuccini</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Gnocchi Pasta</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Spinach Ravioli</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Beef Tortellini</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chips</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Curly Fries</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Sweet Potato Fries</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Cooked Prawns</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Raw Prawns</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Pork Ribs</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Lamb Yirros</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Gluten Free Base</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Mozzarella Cheese</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Feta Cheese</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Parmesan Cheese</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Vegan Cheese</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Sun-dried Tomatoes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Olives</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Fresh Yeast</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Sweet Chilli Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Hot Chilli Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Thickened Cream</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Plum Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Dijon Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Mayonnaise</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Leg Ham</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Bacon</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Crushed Garlic</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Garlic Bread</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Margarine Block Butter</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Large Pizza Boxes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Medium Pizza Boxes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Party Pizza Boxes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Small Pizza Boxes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Special Salt</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>GALLIPO</h3>
+        <ul class="item-list">
+            <li class="item"><label>Thickened Cream</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Faima Tomato Pulpa</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>CAMPBELLS WHOLESALE</h3>
+        <ul class="item-list">
+            <li class="item"><label>Sour Cream</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Onion Rings</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chicken Nuggets</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Garlic Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Italian Dressing</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Brownie</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Lasagne</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Master Food BBQ Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Tomato Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Bin Liners</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Maggie Gravy Powder</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Lemon Pepper</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Fish</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>WOOLWORTH/COLES</h3>
+        <ul class="item-list">
+            <li class="item"><label>Butter</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Almond Milk</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Bocconcini Cheese</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Dijon Sauce</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Mexican Beans</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Beetroot</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Jalapenos</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>TRAFFORD MEAT</h3>
+        <ul class="item-list">
+            <li class="item"><label>Chicken Thigh Fillet</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chicken Breast Fillet</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Chicken Wings</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Pepperoni</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Salami</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>VEGETABLES ORDER</h3>
+        <ul class="item-list">
+            <li class="item"><label>Mushroom</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Capsicum</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Onion</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Spring Onion</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Parsley</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Carrot</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Cucumber</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Tomatoes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Red Cabbage</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Green Cabbage</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Potatoes</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Avocado</label><input type="text" placeholder="Qty"></li>
+            <li class="item"><label>Leaf Salad</label><input type="text" placeholder="Qty"></li>
+        </ul>
+    </div>
+    <!-- Repeat for other categories -->
+
+    <button class="button" onclick="printOrder()">Print Order</button>
+</div>
+
+<script>
+function printOrder() {
+    // Hide all items without quantities
+    document.querySelectorAll('.item').forEach(item => {
+        const quantity = item.querySelector('input').value;
+        if (!quantity || quantity <= 0) {
+            item.style.display = 'none';
+        } else {
+            // Add quantity to item label for printing
+            const label = item.querySelector('label');
+            label.textContent += ` - Qty: ${quantity}`;
+        }
+    });
+
+    // Print the page
+    window.print();
+
+    // Reset display after printing
+    document.querySelectorAll('.item').forEach(item => {
+        item.style.display = 'flex';
+        const label = item.querySelector('label');
+        label.textContent = label.textContent.replace(/ - Qty: \d+/, ''); // Remove added quantity
+    });
+}
+</script>
+
+</body>
+</html>
