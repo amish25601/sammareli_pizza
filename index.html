@@ -277,37 +277,35 @@
 
 <script>
     function printOrder() {
-        // Create temporary print-friendly version
-        document.querySelectorAll('.item').forEach(item => {
+        const items = document.querySelectorAll('.item');
+        const orderList = [];
+
+        items.forEach(item => {
+            const label = item.querySelector('label').textContent;
             const input = item.querySelector('input');
-            const label = item.querySelector('label');
-            const quantity = input.value;
-            
-            // Add or remove no-quantity class
-            if (!quantity || quantity <= 0) {
-                item.classList.add('no-quantity');
-            } else {
-                item.classList.remove('no-quantity');
-                // Add quantity to label
-                const quantitySpan = document.createElement('span');
-                quantitySpan.className = 'print-qty';
-                quantitySpan.textContent = ' - Qty: ' + quantity;
-                label.appendChild(quantitySpan);
+            const qty = input.value.trim();
+
+            if (qty) { // Only add items with a filled quantity
+                orderList.push(`${label}: ${qty}`);
             }
         });
-    
-        // Print the page
-        window.print();
-    
-        // Cleanup after printing
-        document.querySelectorAll('.print-qty').forEach(span => {
-            span.remove();
-        });
-        document.querySelectorAll('.no-quantity').forEach(item => {
-            item.classList.remove('no-quantity');
-        });
+
+        if (orderList.length > 0) {
+            const orderWindow = window.open('', '', 'height=600,width=800');
+            orderWindow.document.write('<html><head><title>Order Summary</title></head><body>');
+            orderWindow.document.write('<h2>Order Summary</h2>');
+            orderList.forEach(order => {
+                orderWindow.document.write(`<p>${order}</p>`);
+            });
+            orderWindow.document.write('</body></html>');
+            orderWindow.document.close();
+            orderWindow.print();
+        } else {
+            alert('Please enter quantities for items before printing.');
+        }
     }
-    </script>
+</script>
+
     
     </body>
     </html>
