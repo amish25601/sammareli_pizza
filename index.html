@@ -7,11 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
         }
         .container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -19,6 +21,7 @@
         h2, h3 {
             text-align: center;
             color: #333;
+            margin: 10px 0;
         }
         .category {
             margin-top: 20px;
@@ -29,20 +32,25 @@
             padding: 8px;
             border-radius: 4px;
             text-align: left;
+            margin: 0;
         }
         .item-list {
             margin: 10px 0;
             padding-left: 20px;
+            list-style-type: none;
         }
         .item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 5px 0;
+            margin: 5px 0;
         }
         .item label {
             font-size: 1rem;
             color: #555;
+            flex-grow: 1;
+            margin-right: 10px;
         }
         .item input {
             width: 60px;
@@ -64,13 +72,53 @@
         .button:hover {
             background-color: #0056b3;
         }
+        
+        /* Mobile-specific styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 0;
+                border: none;
+            }
+            .item {
+                padding: 8px 0;
+            }
+            .item label {
+                font-size: 0.9rem;
+            }
+            .item input {
+                width: 50px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Print-specific styles */
         @media print {
-            .button, input { display: none; }
+            .button { 
+                display: none; 
+            }
             .container {
                 border: none;
                 background-color: white;
                 margin: 0;
                 padding: 0;
+            }
+            .item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .item input {
+                display: none;
+            }
+            .print-qty {
+                margin-left: 10px;
+            }
+            .no-quantity {
+                display: none;
+            }
+            .category {
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -228,30 +276,38 @@
 </div>
 
 <script>
-function printOrder() {
-    // Hide all items without quantities
-    document.querySelectorAll('.item').forEach(item => {
-        const quantity = item.querySelector('input').value;
-        if (!quantity || quantity <= 0) {
-            item.style.display = 'none';
-        } else {
-            // Add quantity to item label for printing
+    function printOrder() {
+        // Create temporary print-friendly version
+        document.querySelectorAll('.item').forEach(item => {
+            const input = item.querySelector('input');
             const label = item.querySelector('label');
-            label.textContent += ` - Qty: ${quantity}`;
-        }
-    });
-
-    // Print the page
-    window.print();
-
-    // Reset display after printing
-    document.querySelectorAll('.item').forEach(item => {
-        item.style.display = 'flex';
-        const label = item.querySelector('label');
-        label.textContent = label.textContent.replace(/ - Qty: \d+/, ''); // Remove added quantity
-    });
-}
-</script>
-
-</body>
-</html>
+            const quantity = input.value;
+            
+            // Add or remove no-quantity class
+            if (!quantity || quantity <= 0) {
+                item.classList.add('no-quantity');
+            } else {
+                item.classList.remove('no-quantity');
+                // Add quantity to label
+                const quantitySpan = document.createElement('span');
+                quantitySpan.className = 'print-qty';
+                quantitySpan.textContent = ' - Qty: ' + quantity;
+                label.appendChild(quantitySpan);
+            }
+        });
+    
+        // Print the page
+        window.print();
+    
+        // Cleanup after printing
+        document.querySelectorAll('.print-qty').forEach(span => {
+            span.remove();
+        });
+        document.querySelectorAll('.no-quantity').forEach(item => {
+            item.classList.remove('no-quantity');
+        });
+    }
+    </script>
+    
+    </body>
+    </html>
